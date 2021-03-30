@@ -10,18 +10,21 @@
    <div id="wrapper">
    <header>
       <nav>
+        <%- include('../views/navbar.ejs') %>
+        <!--
         <ul>
           <li><a href="/index" title="Home">Home</a></li>
           <li><a href="/about" title="About">About</a></li>
           <li><a href="/gallery" title="Gallery">Gallery</a></li>
           <li><a href="/contact" title="Contact">Contact</a></li>
         </ul>
+      -->
       </nav>
       <div id="banner"></div>
     </header>
     <main>
       <h1>Main section</h1>
-      <p>Sample main content text.</p>
+      <p>Welcome, <%nomen%></p>
     </main>
     <aside>
       <h2>Sub-section</h2>
