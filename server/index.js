@@ -40,7 +40,7 @@ const counter = function(req, res, next) {
 }
 
 //Routes
-app.get('/index', function(req, res) {
+app.get('/', function(req, res) {
   //console.log(req.session);
   res.render('index', {data: req.session});
 });
@@ -72,7 +72,7 @@ app.get('/blog/write/', (req, res) => {
   res.render('writing', {data: req.session});
 });
 
-app.get('/blog/writepost/', async (req, res) => {
+app.post('/blog/writepost/', async (req, res) => {
   console.log(req.body);
   let newPost = new BlogPost(req.body);
   await newPost.save();
