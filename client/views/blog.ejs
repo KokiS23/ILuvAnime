@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>All About Anime</title>
+    <%- include('header.ejs') %>
+  </head>
+  <body>
+    <div id="wrapper">
+    <header>
+       <nav></nav>
+       <div id="banner"></div>
+    </header>
+    <main>
+    <h1>So you have come to learn more about anime</h1>
+    <a href="write/">Write a post</a>
+    <table>
+    <% postset.forEach(function(bpost) { %>
+    <%- include('blogpostpreview', {post: bpost}) %>
+    <%=bpost.title%>
+    <% }) %>
+    </table>
+    <%- include('navbar.ejs') %>
+    </main>
+    </div>
+  </body>
+</html>
