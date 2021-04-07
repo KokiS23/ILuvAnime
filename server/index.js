@@ -85,7 +85,7 @@ app.post('/welcome', (request, response) => {
   response.send('SUCCESS');
 });
 
-app.post('/writeblogpost', (request, response) => {
+app.post('/writepost', (request, response) => {
   console.log(request.body);
   response.redirect('/index');
 });
