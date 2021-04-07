@@ -4,26 +4,14 @@
      <meta charset="UTF-8">
      <title>DMS 321 First Homework</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <!--<link href="style.css" rel="stylesheet">-->
      <%- include('header.ejs') %>
    </head>
    <body>
-   <div id="wrapper">
    <header>
-      <nav>
-        <%- include('../views/navbar.ejs') %>
-      <!--
-        <ul>
-          <li><a href="/index" title="Home">Home</a></li>
-          <li><a href="/about" title="About">About</a></li>
-          <li><a href="/gallery" title="Gallery">Gallery</a></li>
-          <li><a href="/contact" title="Contact">Contact</a></li>
-        </ul>
-      -->
-      </nav>
       <div id="banner"></div>
     </header>
-    <main>
+    <div id="mainpanel">
+    <main id="sort2">
       <h1>Main section</h1>
       <p>People are afraid of this show<p>
       <p>Sample main content text.</p>
@@ -32,6 +20,7 @@
       <h2>Sub-section</h2>
       <p>Sample sidebar text.</p>
     </aside>
+    <%- include('../views/navbar.ejs') %>
    </div> <!-- close wrapper -->
    </body>
 </html>
