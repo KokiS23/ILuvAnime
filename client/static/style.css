@@ -10,14 +10,14 @@
  --body-color: #d5d7ff;
 }
 body {
-   background-color: var(--body-color);
-   text-align: left;
-   font: 11px/1.1em "Lucida Grande", Lucida, Verdana, sans-serif;
-/* Necessary for gradient to work properly */
-height: 100%;
-margin: 0;
-background-repeat: no-repeat;
-background-attachment: fixed;
+  background-color: var(--body-color);
+  text-align: left;
+  font: 11px/1.1em "Lucida Grande", Lucida, Verdana, sans-serif;
+  /* Necessary for gradient to work properly */
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 #wrapper {
    margin: 0 auto;
@@ -26,6 +26,7 @@ background-attachment: fixed;
 h1 {
    font-size: 1.5em;
    color: #639;
+   line-height:1.5em;
 }
 h2 {
    font-size: 1.3em;

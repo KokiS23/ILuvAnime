@@ -30,6 +30,10 @@ app.listen(2000);
 //Setting Views
 app.set('view engine', 'ejs');
 app.set('views', viewsPath);
+app.use((req, res, next)=>{
+    console.log(req.originalUrl);
+    next();
+})
 
 //Visitor Counter
 var x = 0;
@@ -41,7 +45,7 @@ const counter = function(req, res, next) {
 
 //Routes
 app.get('/', function(req, res) {
-  //console.log(req.session);
+  console.log(req.session);
   res.render('index', {data: req.session});
 });
 
@@ -56,11 +60,6 @@ app.get('/contact', function(req, res) {
 app.get('/gallery', function(req, res) {
   res.render('gallery', {data: req.session});
 });
-
-//app.use((req, res, next)=>{
-    //console.log(req.originalUrl);
-    //next();
-//})
 
 app.get('/blog/', async (req, res) => {
   var posts = await BlogPost.find({}, (error, result) => {
@@ -93,7 +92,7 @@ app.get('/blog/:id/', async (req, res)=>{
   });
 });
 
-app.post('/blog/writepost/', async (req, res) => {
+app.post('/blog/writepost', async (req, res) => {
   console.log(req.body);
   try {
     let newPost = new BlogPost(req.body);
@@ -123,27 +122,32 @@ app.get('/blog/:id/edit', (req, res) =>{
   });
 });
 
-app.post('/blog/:id/edit', (req, res)=>{
-    BlogPost.findById(req.params.id, (error, result)=>{
-      if(error) {
-        console.log(error);
-        res.status(500);
-      }
-      else if(result) {
-        result.title = req.body.title;
-        result.body = req.body.body;
-        result.save();
-        res.redirect(path.join('/blog/', req.params.id));
-      }
-      else res.redirect('/blog/');
-    });
+app.post('/blog/:id/edit', (req, res) =>{
+  BlogPost.findById(req.params.id, (error, result)=>{
+    if(error) {
+      console.log(error);
+      res.status(500);
+    }
+    else if(result) {
+      result.title = req.body.title;
+      result.body = req.body.body;
+      result.save();
+      res.redirect(path.join('/blog/', req.params.id));
+    }
+    else res.render('/blog/');
+  });
 });
+
+// app.put('/blog/:id/update', (req, res)=>{
+//   console.log(req);
+//   res.redirect('/blog/');
+// });
 
 app.get('/blog/:id/delete', (req, res)=>{
   BlogPost.deleteOne({_id: req.params.id}, (error, result)=>{
     if(error){
       console.log(error);
-    };
+    }
     res.redirect('/blog/');
   });
 });

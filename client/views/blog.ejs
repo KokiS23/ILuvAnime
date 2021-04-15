@@ -10,14 +10,16 @@
       <div id="mainpanel">
         <main id="sort1">
         <h1>So you have come to learn more about anime</h1>
-        <a href="write/">Write a post</a>
         <table>
         <% postset.forEach(function(bpost) { %>
         <%- include('blogpostpreview', {post: bpost}) %>
-        <%=bpost.title%>
+        <!--<%=bpost.title%>-->
+        <br/>
         <% }) %>
         </table>
         <%- include('navbar.ejs') %>
+        <br/><br/>
+        <a href="write/">Write a post</a>
         </main>
       </div>
   </body>

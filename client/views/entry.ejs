@@ -4,11 +4,17 @@
     <%- include('header.ejs') %>
   </head>
   <body>
+    <header>
+       <div id="banner"></div>
+    </header>
+
     <div id="mainpanel">
-    <h1><%=entry.title%></h1>
-    <%=entry.body%><br/><br/>
-    (<a href="edit">Edit</a> | <a href="delete">Delete</a>)
+      <main id="sort1">
+        <h1><%=entry.title%></h1>
+        <%=entry.body%><br/><br/>
+        (<a href="edit">Edit</a> | <a href="delete">Delete</a>)
+      <%- include('../views/navbar.ejs') %>
     </div>
-    <%- include('../views/navbar.ejs') %>
+    </main>
   </body>
 </html>
